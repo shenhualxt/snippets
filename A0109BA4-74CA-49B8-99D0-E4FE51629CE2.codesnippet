@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>mvvm</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    //创建tableView
+    _tableView=[UITableView new];
+    _tableView.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.edges.equalTo(self);
+    }];
+    
+    [self bindingViewModel];
+    
+}
+
+-(void)bindingViewModel{
+    &lt;#ViewModel#&gt; *viewModel=[ &lt;#ViewModel#&gt; new];
+    
+    RACCommand *selectionCommand=[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal empty];
+    }];
+    
+    _helper=[CETableViewBindingHelper bindingHelperForTableView:self.tableView sourceSignal:[viewModel.sourceCommand.executionSignals switchToLatest] selectionCommand:selectionCommand templateCellClass:[CategoryRankListCell class]];
+    
+    @weakify(self)
+    [viewModel.sourceCommand.executing subscribeNext:^(id x) {
+        @strongify(self)
+        [self loading:[x boolValue]];
+        [self.tableView headerEndRefreshing];
+        [self.tableView footerEndRefreshing];
+    }];
+    //错误处理
+    [viewModel.sourceCommand.errors subscribeNext:^(NSError *error) {
+        [LcsUtil showToast:error.userInfo[kNetErrorMessageKey]];
+    }];
+    //添加下拉刷新
+    [self.tableView addHeaderWithCallback:^{
+        @strongify(self)
+        [viewModel.sourceCommand execute:nil];
+    }];
+    //分页
+    [self.tableView addFooterWithCallback:^{
+        @strongify(self)
+        [viewModel.sourceCommand execute:nil];
+    }];
+    
+    //self.sendObject 排行榜类型
+    [viewModel.sourceCommand execute:nil];
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A0109BA4-74CA-49B8-99D0-E4FE51629CE2</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>mvvm</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>mvvm</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

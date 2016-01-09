@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>createButton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>&lt;#buttonName#&gt;=[UIButton new];
+    [&lt;#buttonName#&gt; setTitle:&lt;#title#&gt; forState:UIControlStateNormal];
+    [&lt;#buttonName#&gt; setTitleColor:KColorAssistMarkRed forState:UIControlStateNormal];
+    &lt;#buttonName#&gt;.backgroundColor=KColorAssistMarkRed;
+    &lt;#buttonName#&gt;.titleLabel.font=kFont16;
+    [&lt;#buttonName#&gt; setImage:[UIImage imageNamed:&lt;#(nonnull NSString *)#&gt;] forState:&lt;#(UIControlState)#&gt;];
+    [&lt;#parentView#&gt; addSubview:&lt;#buttonName#&gt;];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C23DED7D-3A1E-4A0A-B918-5DC230132F9C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>createButton</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>createButton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

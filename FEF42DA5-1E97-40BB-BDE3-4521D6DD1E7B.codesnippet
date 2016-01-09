@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>createImageView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>&lt;#imageViewName#&gt;=[UIImageView new];
+    &lt;#imageViewName#&gt;.backgroundColor=[UIColor purpleColor];
+    [&lt;#parentView#&gt; addSubview:&lt;#imageViewName#&gt;];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>FEF42DA5-1E97-40BB-BDE3-4521D6DD1E7B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>createImageView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>createImageView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
